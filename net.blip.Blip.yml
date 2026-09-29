@@ -11,6 +11,10 @@ finish-args:
   # Needed for playing sound effects
   - --socket=pulseaudio
   - --share=network
+  # Needed to offer quick options when picking transfer save destinations
+  - --filesystem=xdg-desktop
+  - --filesystem=xdg-documents
+  - --filesystem=xdg-download
   # Needed to send files and resume transfers across app restarts. Portal access for pasted and dropped files is temporary,
   # and staging potentially large files would duplicate user data. Access is limited to the home directory and standard
   # mount locations used by external drives and network shares such as NAS
@@ -35,8 +39,8 @@ modules:
       - rm -rf $FLATPAK_DEST/share/icons/hicolor/1024x1024  # max. size 512x512
     sources:
       - type: archive
-        url: https://static.blip.net/linux/blip-1.2.0-linux-amd64.tar.gz
-        sha256: c8fdb2910b59d6cc0984162b665902127528e28c47c01719c04af17e6e836340
+        url: https://static.blip.net/linux/blip-1.2.3-linux-amd64.tar.gz
+        sha256: 6734e84294f128ac7db3b0ad0499e9996f84b20a5aa9836415b7370dcb7e610b
         only-arches: [x86_64]
         x-checker-data:
           type: json
@@ -45,8 +49,8 @@ modules:
           url-query: '.files["linux-amd64"].url'
           is-main-source: true
       - type: archive
-        url: https://static.blip.net/linux/blip-1.2.0-linux-aarch64.tar.gz
-        sha256: ff445c02a4edca8e89298ce2d45f120a6795feaba108ae5d2fca72a5d875fa41
+        url: https://static.blip.net/linux/blip-1.2.3-linux-aarch64.tar.gz
+        sha256: 3c582de658eff85fcbe9301b78774b862dc22f40401d777458d2126ac3f1c4a9
         only-arches: [aarch64]
         x-checker-data:
           type: json
